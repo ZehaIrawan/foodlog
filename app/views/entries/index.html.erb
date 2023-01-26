@@ -1,16 +1,26 @@
 <% content_for :title do %>
-  Foodlog &ndash; <%= DateTime.now %>
+  Foodlog &ndash; <%= DateTime.now.to_fs(:nice_date) %>
 <% end %>
 
 <h1>Entries</h1>
 
-<div id="entries">
+<div id="entries" style="display:flex">
   <% @entries.each do |entry| %>
+    <%#= debug entry.to_yaml %>
+    <div style="border:1px solid tomato;padding:1rem;margin:1rem">
     <%= render entry %>
     <p>
-      <%= link_to "Show this entry", entry %>
+    Logged <%= time_ago_in_words(entry.created_at) %> ago
     </p>
+
+
+      <%= link_to "Show", entry %>
+      <%= link_to "Edit", edit_entry_path(entry) %>
+      <%#= link_to "Delete", entry, method: :delete, data:{confirm:'Are you sure'} %>
+      <%= link_to 'Delete', entry, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+    </div>
   <% end %>
 </div>
 
 <%= link_to "New entry", new_entry_path %>
+
