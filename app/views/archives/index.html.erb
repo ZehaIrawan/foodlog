@@ -1,0 +1,17 @@
+<% @entries.each do |day, entries| %>
+    <h3>Entries for <%= day %> </h3>
+
+    <% entries.each do | entry| %>
+        <%= link_to entry_path(entry) do %>
+
+        <div class="card">
+            <div class="card-content">
+                <strong><%= entry.meal_type %> </strong>
+                <%= entry.calories %> calories
+                <%= entry.proteins %> proteins
+                <%= entry.fats %> fats
+            </div>
+        </div>
+        <% end %>
+    <% end %>
+<% end %>
