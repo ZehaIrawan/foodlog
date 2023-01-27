@@ -1,6 +1,30 @@
 <% @entries.each do |day, entries| %>
     <h3>Entries for <%= day %> </h3>
 
+    <nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Calories</p>
+            <p class="title"><%= entries.pluck(:calories).sum %></p>
+            </div>
+        </div>
+
+                <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Proteins</p>
+            <p class="title"><%= entries.pluck(:proteins).sum %></p>
+            </div>
+        </div>
+
+                <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Fats</p>
+            <p class="title"><%= entries.pluck(:fats).sum %></p>
+            </div>
+        </div>
+    </nav>
+
+
     <% entries.each do | entry| %>
         <%= link_to entry_path(entry) do %>
 
