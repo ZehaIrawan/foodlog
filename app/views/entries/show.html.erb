@@ -1,6 +1,8 @@
-<%#
+<% content_for :title do %>
+  <%= @entry.meal_type %> &ndash;  <%= DateTime.now.to_fs(:nice_date) %>
+<% end %>
 
-< style="color: green"><%= notice %>
+<%= params %>
 
 <%= render @entry %>
 
