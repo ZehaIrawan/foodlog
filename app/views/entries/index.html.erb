@@ -1,8 +1,7 @@
 <% content_for :title do %>
-  Foodlog &ndash; <%= DateTime.now.to_fs(:nice_date) %>
+ Foodlog &ndash; <%= DateTime.now.to_fs(:nice_date) %>
 <% end %>
 
-<h1>Entries</h1>
 
 <div id="entries" style="display:flex">
   <% @entries.each do |entry| %>

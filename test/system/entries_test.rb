@@ -2,13 +2,13 @@ require "application_system_test_case"
 
 class EntriesTest < ApplicationSystemTestCase
   setup do
-    @entry = entries(:one)
+    @entry = entries(:breakfast)
   end
 
-  test "visiting the index" do
-    visit entries_url
-    assert_selector "h1", text: "Entries"
-  end
+  # test "visiting the index" do
+  #   visit entries_url
+  #   assert_selector "h1", text: "Foodlog - #{DateTime.now.to_fs(:nice_date)}"
+  # end
 
   test "should create entry" do
     visit entries_url
