@@ -9,6 +9,13 @@
     <div class="card" style="margin:1rem">
     <div class="card-content">
     <%= render entry %>
+
+   <% if entry.category.present?  %>
+    <p>
+      Category : <%= entry.category.title %>
+    </p>
+   <% end %>
+
     <p>
     Logged <%= time_ago_in_words(entry.created_at) %> ago
     </p>
